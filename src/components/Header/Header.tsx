@@ -31,7 +31,7 @@ export default function Header({ onChange }: HeaderProps) {
           <div className="container__header" style={{ float: "left" }}>
             <a href="https://vk.com/akella24vet" target="_blank" rel="noopener noreferrer" aria-label="Мы во ВКонтакте"
               className="header__button">
-              <img src="/icon/vk1.svg" className="socLogo" alt="VK" />
+              <img src="/assets/icon/vk1.svg" className="socLogo" alt="VK" />
             </a>
             <a href="https://www.instagram.com/akella_vet/ " target="_blank" rel="noopener noreferrer" aria-label="Мы в Instagram" className="header__button">
               <img src="icon/instagram1.svg" className="socLogo" alt="Instagram" />
