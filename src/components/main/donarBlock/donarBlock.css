@@ -1,0 +1,91 @@
+.donar-block {
+    display: inline-block;
+    vertical-align: middle;
+    width: 70%;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.donar-block:first-child {
+    width: 30%;
+}
+
+.donar-block .yyy a {
+    display: inline-block;
+    font-size: 16px;
+    background-color: #ffffff;
+    color: #0588fb;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #0588fb;
+    transition: 0.2s ease;
+}
+
+.donar-block a:hover {
+    color: rgb(255, 255, 255);
+    background-color: #0588fb
+}
+
+.rightAnimations.element-animation {
+    transform: translateX(500px);
+    -webkit-transform: translateX(500px);
+    -ms-transform: translateX(500px);
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+.leftAnimations.element-animation {
+    transform: translateX(-400px);
+    -webkit-transform: translateX(-400px);
+    -ms-transform: translateX(-400px);
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+.leftAnimations.element-animation.element-show {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+}
+
+.rightAnimations.element-animation.element-show {
+    transform: translateX(0);
+    -webkit-transform: translateX(0);
+    -ms-transform: translateX(0);
+}
+
+@media (max-width: 1280px) {
+    .donar-block {
+        display: inline-block;
+        vertical-align: middle;
+        width: 100%;
+    }
+
+    .donar-block:first-child {
+        width: 100%;
+    }
+}
+
+@media (max-width: 1800px) {
+    .leftAnimations.element-animation {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(-500px);
+        -webkit-transition: all 0;
+        -o-transition: all 0s;
+        transition: all 0;
+    }
+
+    .rightAnimations.element-animation {
+        transform: translateX(0);
+        -webkit-transform: translateX(0);
+        -ms-transform: translateX(0);
+        -webkit-transition: all 0;
+        -o-transition: all 0s;
+        transition: all 0s;
+    }
+}

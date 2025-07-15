@@ -1,0 +1,14 @@
+.price_container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    justify-content: space-around;
+}
+
+.inputSearch{
+    min-width: 450px;
+    font-size: 20px;
+    border-radius: 10px;
+    border-color: #444444;
+    
+}

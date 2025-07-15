@@ -1,0 +1,119 @@
+.form {
+    border: 1px solid #727272;
+    width: 500px;
+    background-color: #ffffff;
+    padding: 20px 20px 20px 20px;
+    border-radius: 25px;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+    unicode-bidi: isolate;
+}
+
+.form .name-pole {
+    font-size: 18px;
+    font-weight: 600;
+    color: #0588fb;
+}
+
+.form .noneput {
+    margin: 0 0 3px 0;
+}
+
+input[type="radio" i] {
+    background-color: initial;
+    cursor: default;
+    appearance: auto;
+    box-sizing: border-box;
+    margin: 3px 3px 0px 5px;
+    padding: initial;
+    border: initial;
+}
+
+.form .btn-img.two {
+    margin-right: 20px;
+}
+
+.form .btn-img {
+    display: inline-block;
+    width: 70px;
+    vertical-align: bottom;
+    cursor: pointer;
+}
+
+.tac {
+    text-align: center;
+}
+
+.form .pet-img {
+    width: 100%;
+    height: 70px;
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    background-position: 50% 0;
+}
+
+.form .btn-img>span {
+    font-size: 16px;
+    font-weight: 600;
+    color: #959595;
+}
+
+.form .form-input.select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-position: 96% 50%;
+    background-image: url(icon/select.svg);
+    background-size: 15px 15px;
+    background-repeat: no-repeat;
+}
+
+.form .form-input {
+    display: inline-block;
+    width: 100%;
+    color: #393939;
+    padding: 15px 20px;
+    border: 1px solid #0588fb;
+    border-radius: 20px;
+    font-size: 15px;
+    font-family: 'Jost', sans-serif;
+}
+
+.form .form-input {
+    display: inline-block;
+    width: 100%;
+    color: #393939;
+    padding: 15px 20px;
+    border: 1px solid #0588fb;
+    margin: 0 0 20px 0;
+    border-radius: 20px;
+    font-size: 15px;
+    font-family: 'Jost', sans-serif;
+}
+
+.form .noneput:checked+.btn-img .pet-img {
+    background-position: 50% 100%;
+}
+
+.form textarea {
+    min-height: 120px;
+}
+
+.real-btn>button {
+    display: inline-block;
+    cursor: pointer;
+    font-size: 14px;
+    color: #ffffff;
+    background-color: #0588fb;
+    text-decoration: none;
+    padding: 10px 20px 10px 20px;
+    border-radius: 20px;
+    border: 1px solid #0588fb;
+}
+
+.field__error {
+    color: red;
+}

@@ -1,0 +1,120 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    font-family: "Jost", sans-serif;
+}
+
+h1,
+h2,
+h3 {
+    font-size: 30px;
+}
+
+meta {
+    display: none;
+}
+
+div {
+    unicode-bidi: isolate;
+}
+
+.need_show li {
+    margin-top: 10px;
+}
+
+body {
+    font-family: "Jost", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    background-position-x: center;
+    overflow-x: hidden;
+}
+
+.blueA:hover {
+    color: #ffffff;
+}
+
+.blueA {
+    color: #0588fb;
+}
+
+a {
+    text-transform: uppercase;
+    color: rgb(255, 255, 255);
+    text-decoration: none;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1280px;
+    justify-content: space-around;
+    height: auto;
+    margin: auto;
+    justify-content: space-between;
+}
+
+.mobile__on {
+    display: none;
+}
+
+.btn {
+    margin-top: 30px;
+}
+
+.btn a {
+    display: inline-block;
+    font-size: 16px;
+    background-color: #ffffff;
+    color: #0588fb;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 1px solid #0588fb;
+    transition: 0.2s ease;
+}
+
+.btn a:hover {
+    color: #ffffff;
+    background-color: #0588fb;
+}
+
+.element-animation {
+    opacity: 0;
+    transform: translateY(50px);
+    -webkit-transform: translateY(50px);
+    -ms-transform: translateY(50px);
+    -webkit-transition: all 1s;
+    -o-transition: all 1s;
+    transition: all 1s;
+}
+
+.element-animation.element-show {
+    opacity: 1;
+    transform: translateY(0);
+    -webkit-transform: translateY(0);
+    -ms-transform: translateY(0);
+}
+
+@media (max-width: 608px ) {
+    .container  {
+        justify-content: center !important;
+        padding-left: 15px !important;
+        padding-right: 15px !important;
+    }
+}
+
+@media (hover: hover) and (pointer: fine) {
+    .btn-up:hover {
+        background-color: #0588fb;
+    }
+}
+
+@media (max-width: 1280px) {
+    .container {
+        width: auto !important;;
+    }
+}
