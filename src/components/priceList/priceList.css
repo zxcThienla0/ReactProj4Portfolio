@@ -5,10 +5,38 @@
     justify-content: space-around;
 }
 
-.inputSearch{
+.inputSearch {
     min-width: 450px;
     font-size: 20px;
     border-radius: 10px;
     border-color: #444444;
-    
+
+}
+
+@media (max-width: 768px) {
+    .price_container {
+        display: contents;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .inputSearch {
+        min-width: 300px;
+        font-size: 20px;
+        border-radius: 10px;
+        border-color: #444444;
+
+    }
+}
+
+@media (max-width: 1280px) {
+    .price_container {
+        grid-template-columns: repeat(2, 1fr);
+        padding-left: 10px;
+        padding-right: 10px;
+    }
+
+    .price_container div {
+        height: auto;
+    }
 }

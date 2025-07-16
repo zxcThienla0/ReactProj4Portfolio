@@ -137,7 +137,7 @@
     background: #0588fb;
 }
 
-@media screen and (max-width: 768px) {
+@media (max-width: 768px) {
     .catalog_container {
         display: contents;
         padding-left: 10px;

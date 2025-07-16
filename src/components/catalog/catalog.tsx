@@ -56,6 +56,7 @@ const Products = () => {
                     </strong>
                 </div>
             </h1>
+            <br></br>
             <div className="container" id="ButtonCatalog">
                 <div className="buttonFilters">
                     <button id="allButton" onClick={() => applyFilter('all')}>
