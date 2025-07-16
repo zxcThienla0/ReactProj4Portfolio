@@ -1,13 +1,20 @@
+import img1 from '/image-card/img3.webp';
+import img2 from '/image-card/photo_2022-08-11_19-26-19-825x510.jpg';
+import img3 from '/image-card/4qnnb11fm9os6jnkswn1b0o2ez2jdah8.jpg';
+import img4 from '/image-card/Header2_1570x990-min-600x378.jpg';
+import img5 from '/image-card/2c21a9a78dbe3f1f4840965161c8ecbf.jpg';
+import img6 from '/image-card/0662fafd9db440ce5b55a27efbf69915.jpg';
+
 interface CardData {
-  image: string;
-  badge: string;
-  items: string[];
-  itemsPrice?: (number | string)[];
+    image: string;
+    badge: string;
+    items: string[];
+    itemsPrice?: (number | string)[];
 }
 
-const cardsData: CardData[] = [
+export const cardsData: CardData[] = [
     {
-        image: "image-card/img3.webp",
+        image: img1,
         badge: "Терапия",
         items: [
             "Экстренная помощь",
@@ -25,7 +32,7 @@ const cardsData: CardData[] = [
         ]
     },
     {
-        image: "image-card/photo_2022-08-11_19-26-19-825x510.jpg",
+        image: img2,
         badge: "Вакцинация",
         items: [
             "Вакцинация кошек",
@@ -37,7 +44,7 @@ const cardsData: CardData[] = [
         ]
     },
     {
-        image: "image-card/4qnnb11fm9os6jnkswn1b0o2ez2jdah8.jpg",
+        image: img3,
         badge: "Груминг",
         items: [
             "Стрижка кошек",
@@ -53,7 +60,7 @@ const cardsData: CardData[] = [
         ]
     },
     {
-        image: "image-card/Header2_1570x990-min-600x378.jpg",
+        image: img4,
         badge: "Функциональная диагностика",
         items: [
             "Компьютерная томография",
@@ -71,7 +78,7 @@ const cardsData: CardData[] = [
         ]
     },
     {
-        image: "image-card/2c21a9a78dbe3f1f4840965161c8ecbf.jpg",
+        image: img5,
         badge: "Стоматология",
         items: [
             "Чистка зубов",
@@ -87,7 +94,7 @@ const cardsData: CardData[] = [
         ]
     },
     {
-        image: "image-card/0662fafd9db440ce5b55a27efbf69915.jpg",
+        image: img6,
         badge: "Хирургия",
         items: [
             "Стерилизация",

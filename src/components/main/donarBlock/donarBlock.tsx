@@ -1,5 +1,5 @@
 import useIntersectionObserver from '../../../hooks/useIntersectionObserver';
-
+import image1 from '/images/main-img2.png'
 import './donarBlock.css'
 
 export default function DonorSection() {
@@ -8,7 +8,7 @@ export default function DonorSection() {
     return (
         <div className="container">
             <div className="donar-block leftAnimations element-animation" ref={ref1}>
-                <img src="images/main-img2.png" alt="Счастливая собака" style={{ width: '100%' }} />
+                <img src={image1} alt="Счастливая собака" style={{ width: '100%' }} />
             </div>
 
             <div className="donar-block rightAnimations element-animation" ref={ref}>

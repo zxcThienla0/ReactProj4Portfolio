@@ -5,6 +5,9 @@ interface HeaderProps {
   active: Tab
   onChange: (section: string) => void;
 }
+import vkIcon from '/icon/vk1.svg';
+import instagramIcon from '/icon/instagram1.svg';
+import logo from '/icon/logo.png';
 
 export default function Header({ onChange }: HeaderProps) {
   const mobileMenuRef = useRef<HTMLDivElement>(null);
@@ -31,10 +34,10 @@ export default function Header({ onChange }: HeaderProps) {
           <div className="container__header" style={{ float: "left" }}>
             <a href="https://vk.com/akella24vet" target="_blank" rel="noopener noreferrer" aria-label="Мы во ВКонтакте"
               className="header__button">
-              <img src="/assets/icon/vk1.svg" className="socLogo" alt="VK" />
+              <img src={vkIcon} className="socLogo" alt="VK" />
             </a>
             <a href="https://www.instagram.com/akella_vet/ " target="_blank" rel="noopener noreferrer" aria-label="Мы в Instagram" className="header__button">
-              <img src="icon/instagram1.svg" className="socLogo" alt="Instagram" />
+              <img src={instagramIcon} className="socLogo" alt="Instagram" />
             </a>
             <a
               href="https://api.whatsapp.com/send/?phone=79082122144&text&type=phone_number&app_absent=0"
@@ -54,7 +57,7 @@ export default function Header({ onChange }: HeaderProps) {
         </div>
 
         <a href="index.html" className="header__logo" aria-label="Главная страница">
-          <img src="icon/logo.png" alt="Akella24" loading="lazy" />
+          <img src={logo} alt="Akella24" loading="lazy" />
         </a>
 
         <div className="header__menu hiden__mobile">

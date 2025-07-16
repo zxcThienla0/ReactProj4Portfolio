@@ -1,4 +1,8 @@
 import './footer.css';
+import logoBlue from '/icon/logo-blue.png';
+import vkIcon from '/icon/vk1.svg';
+import instagramIcon from '/icon/instagram1.svg';
+
 
 interface FooterMenuProps {
   title: string;
@@ -40,7 +44,7 @@ export default function Footer({ onChange }: ServicesSliderProps) {
         <div className="container">
           <div className="bottom-block">
             <a href="index.html" className="logo-img" aria-label="Главная страница">
-              <img src="icon/logo-blue.png" alt="Akella24" />
+              <img src={logoBlue} alt="Akella24" />
             </a>
 
             <a href="tel:+73912922144" className="fphone" aria-label="Позвонить">
@@ -76,7 +80,7 @@ export default function Footer({ onChange }: ServicesSliderProps) {
                 rel="noopener noreferrer"
                 aria-label="Мы во ВКонтакте"
               >
-                <img src="icon/vk1.svg" className="socLogo" alt="VK" />
+                <img src={vkIcon} className="socLogo" alt="VK" />
               </a>
               <a
                 href="https://www.instagram.com/akella_vet/ "
@@ -84,7 +88,7 @@ export default function Footer({ onChange }: ServicesSliderProps) {
                 rel="noopener noreferrer"
                 aria-label="Мы в Instagram"
               >
-                <img src="icon/instagram1.svg" className="socLogo" alt="Instagram" />
+                <img src={instagramIcon} className="socLogo" alt="Instagram" />
               </a>
             </div>
 

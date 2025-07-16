@@ -1,6 +1,6 @@
 import './priceList.css';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
-import Card from './priceCard'; // .jsx → .tsx
+import Card from './priceCard';
 import cardsData from '../main/slider/cardData';
 import useSearching from '../../hooks/useSearchPrice';
 

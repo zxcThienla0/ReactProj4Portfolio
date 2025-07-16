@@ -4,6 +4,9 @@ import { useState, useRef } from 'react';
 
 import { validateForm } from './form';
 
+import dogImg from '/icon/dog.png';
+import catImg from '/icon/cat.png';
+
 interface FormData {
   petType: string;
   goal: string;
@@ -83,7 +86,7 @@ const FormInv = () => {
                 required
               />
               <label className="btn-img tac two" htmlFor="radio1">
-                <div className="pet-img" style={{ backgroundImage: "url(icon/dog.png)" }}></div>
+                <div className="pet-img" style={{ backgroundImage: `url(${dogImg})` }}></div>
                 <span>Собака</span>
               </label>
 
@@ -98,7 +101,7 @@ const FormInv = () => {
                 required
               />
               <label className="btn-img tac" htmlFor="radio2">
-                <div className="pet-img" style={{ backgroundImage: "url(icon/cat.png)" }}></div>
+                <div className="pet-img" style={{ backgroundImage: `url(${catImg})` }}></div>
                 <span>Кошка</span>
               </label>
 

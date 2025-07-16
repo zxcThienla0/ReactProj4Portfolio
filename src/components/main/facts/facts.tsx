@@ -1,6 +1,6 @@
 import './facts.css'
 import useIntersectionObserver from '../../../hooks/useIntersectionObserver';
-
+import image1 from '/images/main-img1.jpg'
 export default function AboutClinic() {
     const ref = useIntersectionObserver();
     return (
@@ -39,7 +39,7 @@ export default function AboutClinic() {
                     <meta content="ветклиника в Красноярске" />
                     <img
                         className="half-block-img"
-                        src="images/main-img1.jpg"
+                        src={image1}
                         alt="Забота о собаке"
                     />
                 </div>
