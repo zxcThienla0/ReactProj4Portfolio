@@ -1,11 +1,9 @@
 import './form.css';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
-import { useState, useRef } from 'react';
-
-import { validateForm } from './form';
 
 import dogImg from '/icon/dog.png';
 import catImg from '/icon/cat.png';
+import { SubmitHandler, useForm } from 'react-hook-form';
 
 interface FormData {
   petType: string;
@@ -16,42 +14,25 @@ interface FormData {
 }
 
 const FormInv = () => {
-  const [formData, setFormData] = useState<FormData>({
-    petType: '',
-    goal: '',
-    comment: '',
-    name: '',
-    phone: '',
-  });
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({
+    mode: 'onBlur',
+    defaultValues: {
+      petType: ''
+    }
+  })
 
-  const [errors, setErrors] = useState<Record<string, string[]>>({});
-  const formRef = useRef<HTMLFormElement>(null);
+  const onsubmit: SubmitHandler<FormData> = (data) => {
+    console.log(data);
+    reset()
+  }
+
+  const errorName = errors['name']?.message
+  const errorPhone = errors['phone']?.message
+  const errorComment = errors['comment']?.message
+  const errorGoal = errors['goal']?.message
+  const errorPetType = errors['petType']?.message
 
   const ref = useIntersectionObserver();
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    const form = formRef.current;
-    const { isValid, errors, firstInvalidField } = validateForm(form);
-
-    setErrors(errors);
-
-    if (!isValid && firstInvalidField) {
-      firstInvalidField.focus();
-    } else {
-      console.log('Форма прошла валидацию:', formData);
-      alert('Форма успешно отправлена!');
-    }
-  };
 
   return (
     <>
@@ -71,7 +52,7 @@ const FormInv = () => {
       <br />
       <section>
         <div className="container" style={{ justifyContent: 'center' }}>
-          <form ref={formRef} className="form" onSubmit={handleSubmit} noValidate>
+          <form className="form" onSubmit={handleSubmit(onsubmit)} noValidate>
             <div className="block-bottom">
               <div className="name-pole">Укажите вид питомца:</div>
 
@@ -79,11 +60,12 @@ const FormInv = () => {
                 type="radio"
                 className="noneput"
                 value="Собака"
-                name="petType"
                 id="radio1"
-                checked={formData.petType === 'Собака'}
-                onChange={handleChange}
-                required
+                {
+                ...register('petType', {
+                  required: 'Это поле обязательно'
+                })
+                }
               />
               <label className="btn-img tac two" htmlFor="radio1">
                 <div className="pet-img" style={{ backgroundImage: `url(${dogImg})` }}></div>
@@ -94,34 +76,30 @@ const FormInv = () => {
                 type="radio"
                 className="noneput"
                 value="Кошка"
-                name="petType"
                 id="radio2"
-                checked={formData.petType === 'Кошка'}
-                onChange={handleChange}
-                required
+                {
+                ...register('petType', {
+                  required: 'Это поле обязательно'
+                })
+                }
               />
               <label className="btn-img tac" htmlFor="radio2">
                 <div className="pet-img" style={{ backgroundImage: `url(${catImg})` }}></div>
                 <span>Кошка</span>
               </label>
 
+              {errorPetType && <p style={{ color: 'red' }}>{errorPetType}</p>}
               <br />
-              {errors.petType && (
-                <div data-js-form-field-errors className="field__errors">
-                  {errors.petType.map((msg, i) => (
-                    <span key={i} className="field__error">{msg}</span>
-                  ))}
-                </div>
-              )}
             </div>
             <br />
             <div>
               <select
-                name="goal"
                 className="form-input select"
-                value={formData.goal}
-                onChange={handleChange}
-                required
+                {
+                ...register('goal', {
+                  required: 'Выберете причину'
+                })
+                }
               >
                 <option value="">Причина обращения*</option>
                 <option value="Консультация">Консультация</option>
@@ -132,76 +110,75 @@ const FormInv = () => {
                 <option value="Косметологическая процедура">Косметологическая процедура</option>
                 <option value="Затрудняюсь ответить">Затрудняюсь ответить</option>
               </select>
-              {errors.goal && (
-                <div data-js-form-field-errors className="field__errors">
-                  {errors.goal.map((msg, i) => (
-                    <span key={i} className="field__error">{msg}</span>
-                  ))}
-                </div>
-              )}
             </div>
+            {errorGoal && <p style={{ color: 'red' }}>{errorGoal}</p>}
             <br />
             <div>
               <textarea
+                style={{ resize: 'none' }}
                 className="form-input"
-                name="comment"
                 placeholder="Комментарий*"
-                minLength={5}
-                maxLength={500}
-                value={formData.comment}
-                onChange={handleChange}
-                required
+                {
+                ...register('comment', {
+                  required: 'Это поле обязательно',
+                  minLength: {
+                    value: 5,
+                    message: 'Комментарий должен быть не менее 5 символов'
+                  },
+                  maxLength: {
+                    value: 500,
+                    message: 'Комментарий не должен превышать 500 символов'
+                  },
+
+                })
+                }
               ></textarea>
-              {errors.comment && (
-                <div data-js-form-field-errors className="field__errors">
-                  {errors.comment.map((msg, i) => (
-                    <span key={i} className="field__error">{msg}</span>
-                  ))}
-                </div>
-              )}
+              {errorComment && <p style={{ color: 'red' }}>{errorComment}</p>}
             </div>
             <br />
             <div>
               <input
                 className="form-input"
-                name="name"
                 type="text"
                 placeholder="Ваше имя*"
-                minLength={2}
-                maxLength={15}
-                pattern="^[A-Za-zА-Яа-я\sё]+$"
-                value={formData.name}
-                onChange={handleChange}
-                required
+                {
+                ...register('name', {
+                  required: 'Это поле обязательно',
+                  minLength: {
+                    value: 2,
+                    message: 'Имя должно быть не менее 2 символов'
+                  },
+                  maxLength: {
+                    value: 15,
+                    message: 'Имя не должно превышать 15 символов'
+                  },
+                  pattern: {
+                    value: /^[A-Za-zА-Яа-я\sё]+$/i,
+                    message: 'Неправильно введено имя',
+                  }
+                })
+                }
               />
-              {errors.name && (
-                <div data-js-form-field-errors className="field__errors">
-                  {errors.name.map((msg, i) => (
-                    <span key={i} className="field__error">{msg}</span>
-                  ))}
-                </div>
-              )}
+              {errorName && <p style={{ color: 'red' }}>{errorName}</p>}
             </div>
             <br />
             <div>
               <input
-                pattern="^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$"
                 className="form-input"
-                name="phone"
                 type="tel"
                 placeholder="Ваш номер телефона*"
-                value={formData.phone}
-                onChange={handleChange}
-                required
+                {
+                ...register('phone', {
+                  required: 'Это поле обязательно',
+                  pattern: {
+                    value: /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/,
+                    message: 'Неправильно введён номер',
+                  }
+                })}
               />
-              {errors.phone && (
-                <div data-js-form-field-errors className="field__errors">
-                  {errors.phone.map((msg, i) => (
-                    <span key={i} className="field__error">{msg}</span>
-                  ))}
-                </div>
-              )}
+              {errorPhone && <p style={{ color: 'red' }}>{errorPhone}</p>}
             </div>
+
             <br />
             <div className="real-btn">
               <button type="submit">

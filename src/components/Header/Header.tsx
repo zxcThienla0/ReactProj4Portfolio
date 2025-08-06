@@ -1,15 +1,12 @@
 import './Header.css';
 import { useRef, useState } from 'react';
-type Tab = 'main' | 'catalog' | 'formInv' | 'priceList'
-interface HeaderProps {
-  active: Tab
-  onChange: (section: string) => void;
-}
 import vkIcon from '/icon/vk1.svg';
 import instagramIcon from '/icon/instagram1.svg';
 import logo from '/icon/logo.png';
 
-export default function Header({ onChange }: HeaderProps) {
+import { Link } from 'react-router-dom';
+
+export default function Header() {
   const mobileMenuRef = useRef<HTMLDivElement>(null);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
@@ -81,18 +78,18 @@ export default function Header({ onChange }: HeaderProps) {
         </div>
 
         <div className="hiden__mobile">
-          <button className="header__button" onClick={() => onChange('main')}>
+          <Link to='/' className="header__button">
             Главная
-          </button>
-          <button className="header__button" onClick={() => onChange('catalog')}>
+          </Link>
+          <Link to='/Info' className="header__button">
             Новости и Акции
-          </button>
-          <button className="header__button" onClick={() => onChange('priceList')}>
+          </Link>
+          <Link to='/PriceList' className="header__button">
             Услуги и цены
-          </button>
-          <button className="header__button" onClick={() => onChange('formInv')}>
+          </Link>
+          <Link to='/FormInv' className="header__button">
             Запись на приём
-          </button>
+          </Link>
         </div>
       </div>
 
@@ -114,16 +111,24 @@ export default function Header({ onChange }: HeaderProps) {
         <div id="mobile-menu" style={{ textAlign: 'center', padding: '15px' }}>
           <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
             <li>
-              <button className="header__button" onClick={() => onChange('main')}>Главная</button>
+              <Link to='/' className="header__button">
+                Главная
+              </Link>
             </li>
             <li>
-              <button className="header__button" onClick={() => onChange('catalog')}>Новости и Акции</button>
+              <Link to='/Info' className="header__button">
+                Новости и Акции
+              </Link>
             </li>
             <li>
-              <button className="header__button" onClick={() => onChange('priceList')}>Услуги и цены</button>
+              <Link to='/PriceList' className="header__button">
+                Услуги и цены
+              </Link>
             </li>
             <li>
-              <button className="header__button" onClick={() => onChange('formInv')}>Запись на приём</button>
+              <Link to='/FormInv' className="header__button">
+                Запись на приём
+              </Link>
             </li>
           </ul>
         </div>

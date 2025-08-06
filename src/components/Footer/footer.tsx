@@ -2,14 +2,12 @@ import './footer.css';
 import logoBlue from '/icon/logo-blue.png';
 import vkIcon from '/icon/vk1.svg';
 import instagramIcon from '/icon/instagram1.svg';
+import { Link } from 'react-router-dom';
 
 
 interface FooterMenuProps {
   title: string;
   links: { name: string; url: string }[];
-}
-interface ServicesSliderProps {
-  onChange: (view: string) => void;
 }
 
 const FooterMenu = ({ title, links }: FooterMenuProps) => (
@@ -24,7 +22,7 @@ const FooterMenu = ({ title, links }: FooterMenuProps) => (
   </nav>
 );
 
-export default function Footer({ onChange }: ServicesSliderProps) {
+export default function Footer() {
   const mainMenu = [
     { name: 'О нас', url: 'index.html' },
     { name: 'Новости и Акции', url: 'infoblock.html' },
@@ -94,7 +92,7 @@ export default function Footer({ onChange }: ServicesSliderProps) {
 
             <br />
 
-            <button className="footer-button" aria-label="Записаться на приём" onClick={() => onChange('formInv')}>Записаться на приём</button>
+            <Link to="/FormInv" className="footer-button">Записаться на приём</Link>
           </div>
         </div>
       </footer>

@@ -3,19 +3,15 @@ import { Pagination, Navigation, A11y } from 'swiper/modules';
 import Card from './card';
 import cardsData from './cardData';
 
+import { Link } from 'react-router-dom';
 import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 
 import './slider.css';
 import useIntersectionObserver from '../../../hooks/useIntersectionObserver';
-import { useState } from 'react';
 
-interface ServicesSliderProps {
-  onChange: (view: string) => void;
-}
-
-export default function ServicesSlider({ onChange }: ServicesSliderProps) {
+export default function ServicesSlider() {
   const ref = useIntersectionObserver();
 
   return (
@@ -76,7 +72,7 @@ export default function ServicesSlider({ onChange }: ServicesSliderProps) {
 
       <div className="center-btn">
         <div className="btn">
-          <button onClick={() => onChange('priceList')}>Все услуги</button>
+          <Link to='/PriceList'>Все услуги</Link>
         </div>
       </div>
     </>
