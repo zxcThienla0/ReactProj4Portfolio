@@ -1,8 +1,5 @@
 .footer-img {
-    height: 200px;
-    background-size: 100% auto;
-    background-repeat: no-repeat;
-    background-position: 50% 100%;
+    margin-bottom: 0;
 }
 
 .footer {
