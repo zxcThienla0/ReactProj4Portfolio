@@ -2,6 +2,7 @@ import './footer.css';
 import logoBlue from '/icon/logo-blue.png';
 import vkIcon from '/icon/vk1.svg';
 import instagramIcon from '/icon/instagram1.svg';
+import bgIMG from '/icon/background-footer-image.jpg'
 import { Link } from 'react-router-dom';
 
 
@@ -37,7 +38,7 @@ export default function Footer() {
 
   return (
     <>
-      <div className="footer-img" />
+      <div className="footer-img" style={{backgroundImage: `url(${bgIMG})`}}/>
       <footer className="footer">
         <div className="container">
           <div className="bottom-block">
